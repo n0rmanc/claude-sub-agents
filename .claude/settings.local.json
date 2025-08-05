@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__graphiti-memory__search_memory_nodes",
+      "mcp__graphiti-memory__search_memory_facts",
+      "mcp__graphiti-memory__get_episodes",
+      "mcp__graphiti-memory__delete_entity_edge",
+      "mcp__graphiti-memory__add_memory"
+    ],
+    "deny": []
+  }
+}
