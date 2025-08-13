@@ -6,7 +6,8 @@
       "mcp__graphiti-memory__get_episodes",
       "mcp__graphiti-memory__delete_entity_edge",
       "mcp__graphiti-memory__add_memory",
-      "WebFetch(domain:supabase.com)"
+      "WebFetch(domain:supabase.com)",
+      "Bash(git add:*)"
     ],
     "deny": []
   }
