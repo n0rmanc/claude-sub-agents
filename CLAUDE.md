@@ -14,7 +14,7 @@ This is a curated collection of Claude Code sub-agents organized as Git submodul
 
 ### Synchronize Repository
 ```bash
-make sync  # Sync main repo and all submodules
+make sync  # Sync main repo and all submodules (primary command)
 ```
 
 ### Git Operations
@@ -28,6 +28,20 @@ git submodule update --init --recursive --remote
 # Check status of all submodules
 git submodule status
 git submodule foreach git status
+
+# Check for modified files across all submodules
+git status && git submodule foreach git status
+```
+
+### Agent Discovery and Usage
+```bash
+# List all available agents
+find . -name "*.md" -path "*/agents/*" -o -name "*-agent.md" -o -name "*-pro.md" -o -name "*-engineer.md" | head -20
+
+# Agent categories by subdirectory
+ls hesreallyhim-agents/agents/     # Core development agents
+ls n0rmanc-agents/                 # Taiwan-specialized agents
+ls wshobson-agents/               # Comprehensive agent collection
 ```
 
 ## Architecture Overview
@@ -67,13 +81,19 @@ Follow the 4-section structure for agent documentation:
 
 ### Updating Agent Collections
 ```bash
-# Navigate to specific submodule
+# Update a specific submodule
 cd hesreallyhim-agents
 git pull origin main
 cd ..
 git add hesreallyhim-agents
 git commit -m "更新 hesreallyhim-agents 到最新版本"
+
+# Update all submodules and commit changes
+make sync
+git add .
+git commit -m "同步所有 submodules 到最新版本"
 ```
+
 
 ### Cross-Agent Workflows
 Leverage agent orchestration patterns:
