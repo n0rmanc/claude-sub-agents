@@ -10,7 +10,8 @@
       "Bash(git add:*)",
       "Bash(git submodule:*)",
       "Bash(cat:*)",
-      "WebFetch(domain:www.anthropic.com)"
+      "WebFetch(domain:www.anthropic.com)",
+      "mcp__sequential-thinking__sequentialthinking"
     ],
     "deny": []
   }

@@ -6,9 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a curated collection of Claude Code sub-agents organized as Git submodules:
 
-- **hesreallyhim-agents/**: Core agents including backend-typescript-architect, python-backend-engineer, senior-code-reviewer, ui-engineer
-- **n0rmanc-agents/**: Specialized agents with Taiwan-focused pricing, e2e testing, GitHub project management, and Supabase expertise  
-- **wshobson-agents/**: Comprehensive collection of 60+ domain-specific agents covering development, infrastructure, AI/ML, business, and documentation
+- **agents/hesreallyhim-agents/**: Core agents including backend-typescript-architect, python-backend-engineer, senior-code-reviewer, ui-engineer
+- **agents/n0rmanc-agents/**: Specialized agents with Taiwan-focused pricing, e2e testing, GitHub project management, and Supabase expertise  
+- **agents/wshobson-agents/**: Comprehensive collection of 60+ domain-specific agents covering development, infrastructure, AI/ML, business, and documentation
 
 ## Common Commands
 
@@ -39,9 +39,9 @@ git status && git submodule foreach git status
 find . -name "*.md" -path "*/agents/*" -o -name "*-agent.md" -o -name "*-pro.md" -o -name "*-engineer.md" | head -20
 
 # Agent categories by subdirectory
-ls hesreallyhim-agents/agents/     # Core development agents
-ls n0rmanc-agents/                 # Taiwan-specialized agents
-ls wshobson-agents/               # Comprehensive agent collection
+ls agents/hesreallyhim-agents/agents/     # Core development agents
+ls agents/n0rmanc-agents/                 # Taiwan-specialized agents
+ls agents/wshobson-agents/               # Comprehensive agent collection
 ```
 
 ## Architecture Overview
@@ -54,9 +54,9 @@ Each submodule follows the standard Claude Code agent format:
 - Automatic invocation based on context matching
 
 ### Integration Strategy
-- **hesreallyhim-agents**: Focus on core development workflows
-- **n0rmanc-agents**: Taiwan market specialization and advanced tooling
-- **wshobson-agents**: Comprehensive agent ecosystem with orchestration patterns
+- **agents/hesreallyhim-agents**: Focus on core development workflows
+- **agents/n0rmanc-agents**: Taiwan market specialization and advanced tooling
+- **agents/wshobson-agents**: Comprehensive agent ecosystem with orchestration patterns
 
 ### Submodule Management
 - Each submodule maintains independent versioning
@@ -82,10 +82,10 @@ Follow the 4-section structure for agent documentation:
 ### Updating Agent Collections
 ```bash
 # Update a specific submodule
-cd hesreallyhim-agents
+cd agents/hesreallyhim-agents
 git pull origin main
-cd ..
-git add hesreallyhim-agents
+cd ../..
+git add agents/hesreallyhim-agents
 git commit -m "更新 hesreallyhim-agents 到最新版本"
 
 # Update all submodules and commit changes

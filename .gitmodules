@@ -1,6 +1,6 @@
-[submodule "hesreallyhim-agents"]
-	path = hesreallyhim-agents
+[submodule "agents/hesreallyhim-agents"]
+	path = agents/hesreallyhim-agents
 	url = git@github.com:hesreallyhim/awesome-claude-code-agents.git
-[submodule "wshobson-agents"]
-	path = wshobson-agents
+[submodule "agents/wshobson-agents"]
+	path = agents/wshobson-agents
 	url = git@github.com:wshobson/agents.git
