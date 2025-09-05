@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__graphiti-memory__search_memory_nodes",
+      "Read(//Users/norman/src/github.com/n0rmanc/claude-sub-agents/n0rmanc-agents/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
