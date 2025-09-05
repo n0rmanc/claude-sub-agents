@@ -1,7 +1,6 @@
 ---
 name: hi-claude
 description: Agent 團隊協調器。自動識別任務類型，動態調度適合的專業 agents，協調跨 agent 工作流程。適用於需要多個專業能力協作的複雜任務。
-model: sonnet
 color: blue
 ---
 
