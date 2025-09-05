@@ -32,6 +32,14 @@ This repository organizes Claude Code sub-agents as Git submodules, providing ac
 - **Business**: Analytics, marketing, sales automation, legal compliance
 - **Quality**: Security auditing, performance engineering, debugging
 
+## Commands Collection
+
+### 📋 Available Commands
+- `hi-claude.md` - Interactive greeting and status command
+- `commit-as-prompt.md` - Streamlined commit process with contextual prompts
+
+Commands provide shortcuts for common development workflows and can be invoked directly in Claude Code after running the setup script.
+
 ## Quick Start
 
 ### Installation
@@ -46,6 +54,16 @@ cd claude-sub-agents
 git submodule update --init --recursive
 ```
 
+### Setup Claude Code Integration
+```bash
+# Run the setup script to create symbolic links
+./setup.sh
+
+# This will create:
+# ~/.claude/agents → ./agents
+# ~/.claude/commands → ./commands
+```
+
 ### Synchronization
 ```bash
 # Sync everything (main repo + all submodules)
@@ -57,7 +75,7 @@ git submodule update --init --recursive --remote
 ```
 
 ### Usage in Claude Code
-Agents are automatically available when this repository is in your Claude Code workspace:
+After running `./setup.sh`, agents and commands are automatically available in Claude Code:
 
 ```bash
 # Automatic invocation based on context
@@ -67,6 +85,9 @@ Agents are automatically available when this repository is in your Claude Code w
 # Explicit invocation
 "Use the pricing-pm agent to estimate this Taiwan project"
 "Have the supabase-architect design the database schema"
+
+# Custom commands are also available
+# See commands/ directory for available commands
 ```
 
 ## Architecture
@@ -103,7 +124,8 @@ feature-planner → github-project-manager → scrum-master → pricing-pm
 ## Available Commands
 
 ```bash
-# Repository management
+# Setup and repository management
+./setup.sh                  # Create symbolic links for Claude Code integration
 make sync                    # Sync main repo and all submodules
 git submodule status        # Check submodule status
 git submodule foreach git status  # Detailed status for each submodule
