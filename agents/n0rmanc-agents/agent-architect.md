@@ -1,7 +1,7 @@
 ---
 name: agent-architect
 description: 專門設計和創建新 Claude Code agents 的專家。基於 Anthropic 的設計原則，分析需求、設計 agent 架構、生成完整的 agent 文件。使用於需要創建專業 agent 或優化現有 agent 時。
-model: opus
+model: claude-3-opus-20240229
 color: purple
 ---
 
