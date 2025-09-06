@@ -14,7 +14,7 @@ This is a curated collection of Claude Code sub-agents organized as Git submodul
 
 ```bash
 # Setup (run once from repository root)
-./setup.sh                          # Create symbolic links for Claude Code
+make setup                          # Create symbolic links for Claude Code
 
 # Daily workflow
 make sync                           # Update everything (main repo + all submodules)
