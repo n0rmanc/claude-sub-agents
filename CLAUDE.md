@@ -6,97 +6,54 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a curated collection of Claude Code sub-agents organized as Git submodules:
 
-- **agents/hesreallyhim-agents/**: Core agents including backend-typescript-architect, python-backend-engineer, senior-code-reviewer, ui-engineer
-- **agents/n0rmanc-agents/**: Specialized agents with Taiwan-focused pricing, e2e testing, GitHub project management, and Supabase expertise  
-- **agents/wshobson-agents/**: Comprehensive collection of 60+ domain-specific agents covering development, infrastructure, AI/ML, business, and documentation
+- **agents/hesreallyhim-agents/**: Core development agents (backend, frontend, code review)
+- **agents/n0rmanc-agents/**: Taiwan-specialized agents (pricing, project management, linus-code-critic)
+- **agents/wshobson-agents/**: 60+ domain-specific agents (DevOps, AI/ML, business)
 
-## Common Commands
+## Essential Commands
 
-### Synchronize Repository
 ```bash
-make sync  # Sync main repo and all submodules (primary command)
+# Setup (run once from repository root)
+./setup.sh                          # Create symbolic links for Claude Code
+
+# Daily workflow
+make sync                           # Update everything (main repo + all submodules)
+
+# Find agents (from agents/ directory)
+find . -name "*.md" -type f | grep -E "(agent|pro|engineer)"
+
+# Invoke agents
+@agent-name                         # Explicit invocation
+# Or let Claude Code auto-select based on context
 ```
 
-### Git Operations
-```bash
-# Update main repository only
-git pull origin main
+## Working Notes
 
-# Update all submodules to latest
-git submodule update --init --recursive --remote
+- **Default directory**: `/agents/` - use `cd ..` for repository root
+- **Agent paths**: Direct subfolders (e.g., `n0rmanc-agents/file.md`)
+- **Never commit unless asked**: Always verify before pushing changes
+- **Available commands**: `/hi-claude`, `/commit-as-prompt`
 
-# Check status of all submodules
-git submodule status
-git submodule foreach git status
+## Agent File Format
 
-# Check for modified files across all submodules
-git status && git submodule foreach git status
+```yaml
+---
+name: lowercase-hyphen-name
+description: When to use this agent. Use PROACTIVELY for auto-invocation
+tools: Tool1, Tool2  # Optional, defaults to all
+---
+
+Agent system prompt here...
 ```
 
-### Agent Discovery and Usage
-```bash
-# List all available agents
-find . -name "*.md" -path "*/agents/*" -o -name "*-agent.md" -o -name "*-pro.md" -o -name "*-engineer.md" | head -20
+## Submodule Updates
 
-# Agent categories by subdirectory
-ls agents/hesreallyhim-agents/agents/     # Core development agents
-ls agents/n0rmanc-agents/                 # Taiwan-specialized agents
-ls agents/wshobson-agents/               # Comprehensive agent collection
+```bash
+# Update specific submodule (from agents/)
+cd hesreallyhim-agents && git pull origin main && cd ..
+
+# Commit submodule updates
+git add . && git commit -m "Update submodules"
 ```
 
-## Architecture Overview
-
-### Agent Organization Pattern
-Each submodule follows the standard Claude Code agent format:
-- Markdown files with YAML frontmatter for agent configuration
-- Model assignments based on task complexity (haiku/sonnet/opus)
-- Specialized system prompts for domain expertise
-- Automatic invocation based on context matching
-
-### Integration Strategy
-- **agents/hesreallyhim-agents**: Focus on core development workflows
-- **agents/n0rmanc-agents**: Taiwan market specialization and advanced tooling
-- **agents/wshobson-agents**: Comprehensive agent ecosystem with orchestration patterns
-
-### Submodule Management
-- Each submodule maintains independent versioning
-- Updates synchronized via Makefile for consistent environment
-- Cross-agent coordination through Claude Code's native orchestration
-
-## Agent Documentation Standards
-
-Follow the 4-section structure for agent documentation:
-1. **Before Starting Any Task**: Preparation and search requirements
-2. **Always Save New Information**: Knowledge capture and categorization
-3. **During Your Work**: Execution guidelines and consistency rules  
-4. **Best Practices**: Optimization and improvement patterns
-
-## Working with Submodules
-
-### Adding New Agents
-1. Choose appropriate submodule based on domain
-2. Follow existing naming conventions (lowercase-hyphen-separated)
-3. Include clear descriptions and usage examples
-4. Test agent invocation patterns before committing
-
-### Updating Agent Collections
-```bash
-# Update a specific submodule
-cd agents/hesreallyhim-agents
-git pull origin main
-cd ../..
-git add agents/hesreallyhim-agents
-git commit -m "更新 hesreallyhim-agents 到最新版本"
-
-# Update all submodules and commit changes
-make sync
-git add .
-git commit -m "同步所有 submodules 到最新版本"
-```
-
-
-### Cross-Agent Workflows
-Leverage agent orchestration patterns:
-- Sequential: backend-architect → frontend-developer → test-automator
-- Parallel: performance-engineer + database-optimizer  
-- Review: implementation-agent → code-reviewer → security-auditor
+That's it. Keep it simple.
