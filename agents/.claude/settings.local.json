@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Read(//Users/norman/src/github.com/n0rmanc/claude-sub-agents/**)"
-    ],
-    "deny": [],
-    "ask": []
-  }
-}
